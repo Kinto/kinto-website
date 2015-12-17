@@ -5,12 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kinto - Data sharing at your fingertips</title>
+<title>Kinto - Store, Sync, Share, and Self-Host</title>
 <meta name="description" content="Startup Landing Page">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/font-awesome.css" rel="stylesheet">
 <link href="css/magnific-popup.css" rel="stylesheet">
 <link href="css/main.css" rel="stylesheet">
+<link href="css/override.css" rel="stylesheet">
+<link href="css/monokai_sublime.min.css" rel="stylesheet">
 <script style="" src="js/common.js" charset="UTF-8" type="text/javascript"></script><script src="js/util.js" charset="UTF-8" type="text/javascript"></script><script src="js/stats.js" charset="UTF-8" type="text/javascript"></script><script src="js/map.js" charset="UTF-8" type="text/javascript"></script><script src="js/marker.js" charset="UTF-8" type="text/javascript"></script><script src="js/onion.js" charset="UTF-8" type="text/javascript"></script><script src="js/infowindow.js" charset="UTF-8" type="text/javascript"></script><script src="js/controls.js" charset="UTF-8" type="text/javascript"></script></head>
 <body>
 
@@ -31,7 +33,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" class="btn">JOIN US</a></li>
+          <li><a href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" class="btn">JOIN US</a></li>
         </ul>
       </div>
     </div>
@@ -45,9 +47,9 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Your personal web database</h1>
-        <h2>Focus on your app, storage is here for you.</h2>
+        <h2>Kinto — Store, Sync, Share, and Self-Host</h2>
         <br>
-        <div class="cta-btn"> <a href="#" class="btn">Get started</a></div>
+        <div class="cta-btn"> <a href="http://kinto.readthedocs.org/en/latest/tutorials/run-kinto.html" class="btn">Get started</a></div>
       </div>
     </div>
   </section>
@@ -63,21 +65,20 @@
 <section class="benefits section-spacing text-center" id="features">
   <div class="container">
     <header class="section-header">
-      <h2>Easy to use</h2>
-      <h3>Add synchronisation and sharing abilities to your app in seconds</h3>
+      <h2>Add synchronisation and sharing abilities to your app in seconds.</h2>
     </header>
-    <div class="row">
+    <div class="row" id="overview">
       <div class="col-sm-4"> <img src="img/benefits-1.png" alt="benefits of product">
         <h4>Privacy respecting</h4>
-        <p>Let your users chose where they want their data to be stored</p>
+        <p>Let your users choose where they want their data to be stored.</p>
       </div>
       <div class="col-sm-4"> <img src="img/benefits-2.png" alt="benefits of product">
-        <h4>Synchronisation made easy</h4>
-        <p>Kinto has an <em>offline first</em> approach: use your apps even when offline!</p>
+        <h4>Sync data between devices</h4>
+        <p>Use your apps even when offline, sync when you can.</p>
       </div>
       <div class="col-sm-4"> <img src="img/benefits-3.png" alt="benefits of product">
         <h4>Deploy once, reuse</h4>
-        <p>Deploy once, reuse it for many apps</p>
+        <p>One backend for multiple apps.</p>
       </div>
     </div>
   </div>
@@ -91,127 +92,87 @@
   <div class="container">
 
     <!--feature 1-->
+<div class="row">
+  <div style="height: 300px;" class="col-md-5 col-md-push-7 text-center">
+      <img src="img/overview-use-cases.png" id="kinto-use-cases"/>
+  </div>
+  <div class="col-md-7 col-md-pull-4">
+    <article id="key-features">
+      <ul>
+        <li>Encryption ready</li>
+        <li>Push notifications</li>
+        <li>Ops friendly</li>
+        <li>Apps working offline</li>
+      </ul>
+    </article>
+  </div>
+</div>
 
-    <div class="row">
-      <div style="height: 300px;" class="col-md-7 col-md-push-5">
-        <pre>
-var kinto = new Kinto({remote: "https://kinto.dev.mozaws.net/v1"});
-var tasks = kinto.collection("tasks");
-
-tasks.create({label: "Wake up early"});
-tasks.sync()
-.then(function(res) {
-    console.log("Done!");
-});</pre> </div>
-      <div class="col-md-5 col-md-pull-7">
-        <article>
-          <h2>Drive your data from JavaScript</h2>
-          <p>Thanks to Kinto.js, it is very easy to persist and share your data from within your existing applications. </p>
-        </article>
-      </div>
-    </div>
 
     <!--feature 1 end-->
 
     <!--feature 2-->
-    <div class="row">
-      <div style="height: 518px;" class="col-md-7 text-center"> <img src="img/feature-2.png" alt="feature"> </div>
-      <div class="col-md-5">
+    <div class="row" id="kintojs-demo">
+      <div style="height: 518px;" class="col-md-8">
+        <pre>
+          <code class="javascript">const tasks = new Kinto({
+  remote: "https://kinto.dev.mozaws.net/v1",
+  headers: {Authorization: "Basic " + btoa("user:pass")}
+}).collection("tasks");
+
+tasks
+  .create({label: "First item", done: false})
+  .then(_ => tasks.sync())
+  .then(_ => tasks.list())
+  .then(records => { console.log(records)});</code>
+        </pre>
+      </div>
+      <div class="col-md-4">
         <article>
-          <h2>Made for ops</h2>
-          <p>Kinto.js has been made in order to scale un to hundreds of requests per second. It's been prooftested for you by Mozilla.</p>
+          <h2>Ready for the browser</h2>
+          <p><a href="http://kintojs.readthedocs.org/">Kinto.js</a> helps you to build Web Apps.</p>
           <ul>
-            <li>Integrate well with Docker</li>
-            <li>Find your bottlenecks easily thanks to our profiler</li>
-            <li>Integrate with existing solutions (authentication, storage, etc.)</li>
+            <li>Unlimited local space with IndexedDB</li>
+            <li>Keep working when offline</li>
+            <li>Transparent sync with  built in conflict resolutions strategies.</li>
           </ul>
         </article>
       </div>
     </div>
     <!--feature 2 end-->
 
-    <!--feature 3-->
-    <div class="row">
-      <div style="height: 518px;" class="col-md-7 col-md-push-5 text-center"> <img src="img/feature-3.png" alt="feature"> </div>
-      <div class="col-md-5 col-md-pull-7">
-        <article>
-          <h2>Open source</h2>
-          <p>Kinto is built by an open community of developers. Everything we do is in the open and we welcome contributions</p>
-          <ul>
-            <li>Find libraries in the language of your choice (REST, Python, JavaScript)</li>
-            <li>Get help when you're stuck</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-    <!--feature 3 end-->
-  </div>
-</div>
-
 <!--Features end-->
-
-<!--Tour-->
-
-<section class="tour section-spacing text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 center-block">
-        <h2>Want to get started? <a href="http://kinto.readthedocs.org" class="btn">TAKE A TOUR <i class="fa fa-arrow-right"></i></a></h2>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--Tour end-->
-
-
-<!--Pricing end-->
-
-<!--cta section-->
-
-<section class="cta-section section-spacing text-center">
-  <div class="container">
-    <header class="section-header">
-      <h2>Try Today!</h2>
-      <h3>Get your instance on heroku in a few clicks!</h3>
-    </header>
-    <div class="row">
-      <div class="col-md-12"> <a href="" class="btn">GET STARTED</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--cta section end-->
-<!--Team end-->
-
-<!--contact us-->
-
-<!--contact us end-->
 
 <!--sub-form-->
 <section class="sub-form section-spacing text-center">
   <div class="container">
     <header class="section-header">
-      <h2>Subscribe To Our Newsletter</h2>
-      <h3>Subscribe to get notified of new releases</h3>
+      <h2>Want to get started?</h2>
     </header>
     <div class="row">
       <div class="col-md-6 center-block col-sm-11">
-        <form novalidate="true" id="mc-form">
-          <div class="input-group">
-            <input name="EMAIL" class="form-control" placeholder="Email Address" required="" id="mc-email" type="email">
-            <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">SUBSCRIBE </button>
-            </span> </div>
-          <label for="mc-email" id="mc-notification"></label>
-        </form>
+        <a href="http://kinto.readthedocs.org/en/latest/tutorials/run-kinto.html" class="btn">
+          Read the tutorial →</a>
       </div>
     </div>
   </div>
 </section>
 <!--sub-form end-->
+</div>
+</div>
 
+
+<section class="benefits section-spacing text-center" id="footer">
+  <div class="container">
+    <header class="section-header">
+      <p>Kinto <3 React. Everything is less than three.</p>
+    </header>
+  </div>
+</section>
+
+
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <script src="js/jquery-2.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/waypoints.js"></script>

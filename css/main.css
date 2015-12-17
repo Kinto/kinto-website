@@ -1,12 +1,12 @@
 
 /* ==========================================================================
    Table Of Content
-   ========================================================================== 
-   
-   
+   ==========================================================================
+
+
    1.General
    2.Hero section
-   3.Navbar 
+   3.Navbar
    4.Play button
    5.Featured on
    6.Benefits
@@ -20,18 +20,18 @@
    14.Twitter feed
    15.Contact us
    16.Subscription form styles
-   17.site footer 
+   17.site footer
    18.Social
    19.Small devices (tablets, 768px and up)
    20.Medium devices (desktops, 992px and up)
-   
+
 */
 
 
 /* ==========================================================================
    1.General
    ========================================================================== */
-   
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   line-height: 1.5;
@@ -91,8 +91,8 @@ strong { font-weight: 600; }
 
 /* ==========================================================================
    2.Hero section
-   ========================================================================== */ 
-   
+   ========================================================================== */
+
 .hero-section {
   background: url(../img/bg.jpg) center center no-repeat scroll;
   background-size: cover;
@@ -267,8 +267,8 @@ transform:translateY(0);
 /* ==========================================================================
    4.Play button
    ========================================================================== */
-  
- 
+
+
 .play-btn { margin: 2.25em 0; }
 
 .hero-section .play-btn img { transition: opacity 0.3s linear; }
@@ -278,8 +278,8 @@ transform:translateY(0);
 /* ==========================================================================
    5.Featured on
    ========================================================================== */
-   
- 
+
+
 
 .section-header { margin-bottom: 3em; }
 
@@ -321,7 +321,7 @@ transform:translateY(0);
 /* ==========================================================================
    6.Benefits
    ========================================================================== */
-   
+
 
 
 .benefits img { margin-bottom: .75em; }
@@ -340,7 +340,7 @@ transform:translateY(0);
 /* ==========================================================================
    7.Features
    ========================================================================== */
-   
+
 .features { overflow-x: hidden; }
 
 .features div[class="row"]:nth-child(1),
@@ -364,8 +364,7 @@ transform:translateY(0);
 .features article li:last-child { padding-bottom: 0; }
 
 .features article li:before {
-  content: "• ";
-  color: #f56363;
+  content: "— ";
   padding-right: .5em;
 }
 
@@ -373,8 +372,8 @@ transform:translateY(0);
 
 /* ==========================================================================
    8.video tour
-   ========================================================================== */ 
-   
+   ========================================================================== */
+
 .video-tour {
   position: relative;
   height: 400px;
@@ -424,7 +423,7 @@ transform:translateY(0);
 /* ==========================================================================
    9.tour
    ========================================================================== */
-   
+
 .center-block { float: none; }
 
 .tour h2 {
@@ -443,8 +442,8 @@ transform:translateY(0);
 
 /* ==========================================================================
    10.Pricing
-   ========================================================================== */ 
-   
+   ========================================================================== */
+
 .pricing {
   background: url(../img/bg-pricing.jpg) center center no-repeat scroll;
   background-size: cover;
@@ -520,7 +519,7 @@ transform:translateY(0);
 /* ==========================================================================
   11.reviews
    ========================================================================== */
-   
+
 .reviews figure { margin-bottom: 1.5em; }
 
 blockquote {
@@ -554,7 +553,7 @@ blockquote cite {
 /* ==========================================================================
   12.cta section
    ========================================================================== */
-   
+
 .cta-section { background-color: #f56363; }
 
 .cta-section .section-header { margin-bottom: 2.25em; }
@@ -598,8 +597,8 @@ blockquote cite {
 /* ==========================================================================
    13.Team
    ========================================================================== */
-   
-  
+
+
 
 .team h4 {
   font-size: 21px;
@@ -696,7 +695,7 @@ blockquote cite {
 /* ==========================================================================
    14.Twitter feed
    ========================================================================== */
-   
+
 .twitter-feed {
   background: url(../img/bg-twitter.jpg) center center no-repeat scroll;
   background-size: cover;
@@ -760,7 +759,7 @@ blockquote cite {
 /* ==========================================================================
    16.Subscription form styles
    ========================================================================== */
-   
+
 
  .form-control::-webkit-input-placeholder {
  color: #8A8A8A;
@@ -811,7 +810,7 @@ blockquote cite {
 .valid i { padding-right: .5em; }
 
 /* ==========================================================================
-   17.site footer 
+   17.site footer
    ========================================================================== */
 
 
@@ -833,7 +832,7 @@ blockquote cite {
 .footer-links a:first-child { padding-right: .4em; }
 
 /* ==========================================================================
-   18.Social 
+   18.Social
    ========================================================================== */
 
 
@@ -866,7 +865,7 @@ blockquote cite {
 /* ==========================================================================
    19.Small devices (tablets, 768px and up)
    ========================================================================== */
-   
+
 @media (min-width: 768px) {
 
 .hero-section { padding: 0 0 7.5em; }
@@ -924,9 +923,9 @@ blockquote::before {
 }
 
 /* ==========================================================================
-   20.Medium devices (desktops, 992px and up) 
+   20.Medium devices (desktops, 992px and up)
    ========================================================================== */
-   
+
 @media (min-width: 992px) {
 
 .hero-section { padding: 3em 0 12.75em; }
@@ -956,9 +955,6 @@ blockquote::before {
 .section-spacing { padding: 6em 0; }
 
 .contact.section-spacing { padding: 6em 0 0; }
-
-.features div[class="row"]:nth-child(1),
-.features div[class="row"]:nth-child(2) { margin-bottom: 7.5em; }
 
 .features article { margin-top: 6em; }
 

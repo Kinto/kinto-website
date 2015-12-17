@@ -1,0 +1,28 @@
+#overview > div > p {
+  max-width: 250px;
+  margin: auto;
+}
+
+#kinto-use-cases{
+  width: 400px;
+}
+
+
+#key-features ul li {
+  font-size: 1.6em;
+}
+
+pre {
+  margin-top: 40px;
+  border-width: 0px;
+  font-size: 1.2em;
+  background: none;
+}
+
+code {
+  padding: 20px !important;
+}
+
+#footer {
+  font-size: 0.5em;
+}
