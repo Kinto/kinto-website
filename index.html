@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html style=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><link href="index_fichiers/css_002.css" rel="stylesheet" type="text/css"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}</style>
+<link href="index_fichiers/css.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinto - Data sharing at your fingertips</title>
+<meta name="description" content="Startup Landing Page">
+<link href="index_fichiers/bootstrap.css" rel="stylesheet">
+<link href="index_fichiers/font-awesome.css" rel="stylesheet">
+<link href="index_fichiers/magnific-popup.css" rel="stylesheet">
+<link href="index_fichiers/main.css" rel="stylesheet">
+<script style="" src="index_fichiers/common.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/util.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/stats.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/map.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/marker.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/onion.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/infowindow.js" charset="UTF-8" type="text/javascript"></script><script src="index_fichiers/controls.js" charset="UTF-8" type="text/javascript"></script></head>
+<body>
+
+<!--hero section-->
+
+<header class="hero-section">
+
+  <!--navigation-->
+
+  <div style="" class="sticky-wrapper"><nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href=""><img class="logo-nav" alt="logo" src="img/logo.svg" style="height:40px"></a> </div>
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <ul class="nav navbar-nav nav-left">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="btn">JOIN US</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav></div>
+
+  <!--navigation end-->
+
+  <!--welcome message-->
+
+  <section class="container text-center welcome-message">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Your personal web database</h1>
+        <h2>Focus on your app, storage is here for you.</h2>
+        <br>
+        <div class="cta-btn"> <a href="#" class="btn">Get started</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!--welcome message end-->
+
+</header>
+
+<!--hero section end-->
+
+<!--benefits-->
+
+<section class="benefits section-spacing text-center" id="features">
+  <div class="container">
+    <header class="section-header">
+      <h2>Easy to use</h2>
+      <h3>Add synchronisation and sharing abilities to your app in seconds</h3>
+    </header>
+    <div class="row">
+      <div class="col-sm-4"> <img src="index_fichiers/benefits-1.png" alt="benefits of product">
+        <h4>Privacy respecting</h4>
+        <p>Let your users chose where they want their data to be stored</p>
+      </div>
+      <div class="col-sm-4"> <img src="index_fichiers/benefits-2.png" alt="benefits of product">
+        <h4>Synchronisation made easy</h4>
+        <p>Kinto has an <em>offline first</em> approach: use your apps even when offline!</p>
+      </div>
+      <div class="col-sm-4"> <img src="index_fichiers/benefits-3.png" alt="benefits of product">
+        <h4>Deploy once, reuse</h4>
+        <p>Deploy once, reuse it for many apps</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--benefits end-->
+
+<!--Features-->
+
+<div class="features section-spacing">
+  <div class="container">
+
+    <!--feature 1-->
+
+    <div class="row">
+      <div style="height: 300px;" class="col-md-7 col-md-push-5">
+        <pre>
+var kinto = new Kinto({remote: "https://kinto.dev.mozaws.net/v1"});
+var tasks = kinto.collection("tasks");
+
+tasks.create({label: "Wake up early"});
+tasks.sync()
+.then(function(res) {
+    console.log("Done!");
+});</pre> </div>
+      <div class="col-md-5 col-md-pull-7">
+        <article>
+          <h2>Drive your data from JavaScript</h2>
+          <p>Thanks to Kinto.js, it is very easy to persist and share your data from within your existing applications. </p>
+        </article>
+      </div>
+    </div>
+
+    <!--feature 1 end-->
+
+    <!--feature 2-->
+    <div class="row">
+      <div style="height: 518px;" class="col-md-7 text-center"> <img src="index_fichiers/feature-2.png" alt="feature"> </div>
+      <div class="col-md-5">
+        <article>
+          <h2>Made for ops</h2>
+          <p>Kinto.js has been made in order to scale un to hundreds of requests per second. It's been prooftested for you by Mozilla.</p>
+          <ul>
+            <li>Integrate well with Docker</li>
+            <li>Find your bottlenecks easily thanks to our profiler</li>
+            <li>Integrate with existing solutions (authentication, storage, etc.)</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+    <!--feature 2 end-->
+
+    <!--feature 3-->
+    <div class="row">
+      <div style="height: 518px;" class="col-md-7 col-md-push-5 text-center"> <img src="index_fichiers/feature-3.png" alt="feature"> </div>
+      <div class="col-md-5 col-md-pull-7">
+        <article>
+          <h2>Open source</h2>
+          <p>Kinto is built by an open community of developers. Everything we do is in the open and we welcome contributions</p>
+          <ul>
+            <li>Find libraries in the language of your choice (REST, Python, JavaScript)</li>
+            <li>Get help when you're stuck</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+    <!--feature 3 end-->
+  </div>
+</div>
+
+<!--Features end-->
+
+<!--Tour-->
+
+<section class="tour section-spacing text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 center-block">
+        <h2>Want to get started? <a href="http://kinto.readthedocs.org" class="btn">TAKE A TOUR <i class="fa fa-arrow-right"></i></a></h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Tour end-->
+
+
+<!--Pricing end-->
+
+<!--cta section-->
+
+<section class="cta-section section-spacing text-center">
+  <div class="container">
+    <header class="section-header">
+      <h2>Try Today!</h2>
+      <h3>Get your instance on heroku in a few clicks!</h3>
+    </header>
+    <div class="row">
+      <div class="col-md-12"> <a href="" class="btn">GET STARTED</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--cta section end-->
+<!--Team end-->
+
+<!--contact us-->
+
+<!--contact us end-->
+
+<!--sub-form-->
+<section class="sub-form section-spacing text-center">
+  <div class="container">
+    <header class="section-header">
+      <h2>Subscribe To Our Newsletter</h2>
+      <h3>Subscribe to get notified of new releases</h3>
+    </header>
+    <div class="row">
+      <div class="col-md-6 center-block col-sm-11">
+        <form novalidate="true" id="mc-form">
+          <div class="input-group">
+            <input name="EMAIL" class="form-control" placeholder="Email Address" required="" id="mc-email" type="email">
+            <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">SUBSCRIBE </button>
+            </span> </div>
+          <label for="mc-email" id="mc-notification"></label>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!--sub-form end-->
+
+
+<script src="index_fichiers/jquery-2.js"></script>
+<script src="index_fichiers/bootstrap.js"></script>
+<script src="index_fichiers/waypoints.js"></script>
+<script src="index_fichiers/jquery_003.js"></script>
+<script src="index_fichiers/waypoints-sticky.js"></script>
+<script src="index_fichiers/retina.js"></script>
+<script src="index_fichiers/jquery.js"></script>
+<script src="index_fichiers/jquery_002.js"></script>
+<script src="index_fichiers/tweetie.js"></script>
+<script src="index_fichiers/main.js"></script>
+<script src="index_fichiers/js"></script><script src="index_fichiers/main_002.js"></script>
+<script src="index_fichiers/gmap.js"></script>
+
+
+<style>[href^="http://www.faceporn.net/free?"]
+{display:none !important;}</style><style>[href^="http://www.google.com/aclk?"]
+{display:none !important;}</style></body></html>
