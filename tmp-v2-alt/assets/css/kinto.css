@@ -28,3 +28,13 @@
     width: 280px;
   }
 }
+
+.image.featured {
+  max-height: 177px;
+  overflow: hidden;
+}
+
+.image-wrapper.first:before {
+  box-shadow: none;
+  background: none;
+}
