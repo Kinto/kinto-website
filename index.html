@@ -1,229 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Kinto - Store, Sync, Share, and Self-Host</title>
-  <meta name="description" content="Startup Landing Page">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/css_002.css" rel="stylesheet" type="text/css">
-  <link href="css/css.css" rel="stylesheet">
-  <style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style>
-  <style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style>
-  <style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style>
-  <style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}</style>
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/font-awesome.css" rel="stylesheet">
-  <link href="css/magnific-popup.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
-  <link href="css/override.css" rel="stylesheet">
-  <link href="css/monokai_sublime.min.css" rel="stylesheet">
-  <script style="" src="js/common.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/util.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/stats.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/map.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/marker.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/onion.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/infowindow.js" charset="UTF-8" type="text/javascript"></script>
-  <script src="js/controls.js" charset="UTF-8" type="text/javascript"></script>
-</head>
-<body>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Kinto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/kinto.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+  </head>
+  <body class="homepage">
+    <div id="page-wrapper">
 
-<!--hero section-->
-
-<header class="hero-section">
-
-  <!--navigation-->
-
-  <div style="" class="sticky-wrapper"><nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href=""><img class="logo-nav" alt="logo" src="img/logo.svg" style="height:40px"></a> </div>
-      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
-        <ul class="nav navbar-nav nav-left">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" class="btn">JOIN US</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav></div>
-
-  <!--navigation end-->
-
-  <!--welcome message-->
-
-  <section class="container text-center welcome-message">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Your personal Web database</h1>
-        <h2>Kinto — Store, Sync, Share, and Self-Host</h2>
-        <br>
-        <div class="cta-btn">
-          <a href="https://kinto.readthedocs.io/en/stable/tutorials/install.html" class="btn">Get started</a>
+      <!-- Header -->
+      <div id="header-wrapper">
+        <div id="header" class="container">
+          <h1 id="logo"><img src="./images/logo.png" alt="Kinto"/></h1>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!--welcome message end-->
-
-</header>
-
-<!--hero section end-->
-
-<!--benefits-->
-
-<section class="benefits section-spacing text-center" id="features">
-  <div class="container">
-    <header class="section-header">
-      <h2>Add synchronisation and sharing abilities to your Web application in seconds.</h2>
-    </header>
-    <div class="row" id="overview">
-      <div class="col-sm-4">
-        <div style="min-height: 120px">
-          <img src="img/benefits-1.png" alt="benefits of product">
-        </div>
-        <h4>Privacy friendly</h4>
-        <p>Let your users choose where they want their data to be stored.</p>
-      </div>
-      <div class="col-sm-4">
-        <div style="min-height: 120px">
-          <img src="img/benefits-2.png" alt="benefits of product">
-        </div>
-        <h4>Sync data between devices</h4>
-        <p>Use your apps offline, sync when back online.</p>
-      </div>
-      <div class="col-sm-4">
-        <div style="min-height: 120px">
-          <img src="img/benefits-3.png" alt="benefits of product">
-        </div>
-        <h4>Deploy once, reuse</h4>
-        <p>One backend for multiple apps.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--benefits end-->
-
-<!--Features-->
-
-<div class="features section-spacing">
-  <div class="container">
-    <!--feature 1 end-->
-
-    <!--feature 2-->
-    <div class="row" id="kintojs-demo">
-      <div style="height: 518px;" class="col-md-8">
-        <pre>
-          <code class="javascript">const tasks = new Kinto({
-  remote: "https://kinto.dev.mozaws.net/v1",
-  headers: {Authorization: "Basic " + btoa("user:pass")}
-}).collection("tasks");
-
-tasks
-  .create({label: "First item", done: false})
-  .then(_ => tasks.sync());</code></pre>
-      </div>
-      <div class="col-md-4" id="text-kintojs">
-        <article>
-          <h2>Ready for the browser</h2>
-          <p><a href="https://kintojs.readthedocs.io/">Kinto.js</a> helps you to build Web Apps that syncs.</p>
-          <ul>
-            <li><a href="http://offlinefirst.org/">Offline first</a></li>
-            <li>In-browser storage using IndexedDB</li>
-            <li>Transparent synchronisation flow</li>
-            <li>Built in conflict resolution strategies</li>
+        <!-- Hero -->
+        <section id="hero" class="container">
+          <header>
+            <h2>The backend for your next application<br>&nbsp;is already there</h2>
+          </header>
+          <p>Kinto is a generic JSON document store with<br>&nbsp;sharing and synchronisation capabilities.</p>
+          <ul class="actions">
+            <li><a href="#why" class="button">Why using Kinto?</a></li>
           </ul>
-        </article>
+        </section>
+      </div>
+
+      <div class="wrapper" id="why">
+        <div class="container">
+          <article>
+            <header>
+              <h2>Don’t build silos. Own your data. Redecentralise the Web.</h2>
+            </header>
+            <p>It’s hard for frontend developers to respect users privacy when building applications that work offline, store data remotely, and synchronise accross devices. Existing solutions either rely on big corporations that crave user data, or require a non-trivial amount of time and expertise to setup a new server for every new project.</p>
+            <p>We want to help developers focus on the frontend, and we don’t want the challenge of storing user data to get in their way. The path between a new idea and deploying to production should be short!</p>
+            <p>Also, we believe data belong to the users, and not necessarily to the application authors. Applications should be decoupled from the storage location, and users should be able to choose where their personal data are stored.</p>
+            <p>The backend can often be universal, generic and resuable. We envision mutualisation of services and self-hosting: the backend is deployed, secured and scaled only once for several applications.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="wrapper">
+        <section class="container">
+          <header class="major">
+            <h2>Kinto provides all the tools you need to get productive</h2>
+            <p>Web, Native, Server, Kinto is target platform agnostic</p>
+          </header>
+          <div class="row usecases">
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-database"></i> A generic Web database</h4>
+              <p>A JSON store that speaks HTTP for mobile and Web apps, games, IoT...</p>
+            </section>
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-pencil-square-o"></i> Quickly prototype apps</h4>
+              <p>Don’t lose time with server stuff, reuse the same backend you already use elsewhere.</p>
+            </section>
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-file-text-o"></i> Apps as static files</h4>
+              <p>Simply host your apps on Github pages and consume the Kinto API from there.</p>
+            </section>
+          </div>
+          <div class="row usecases">
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-power-off"></i> Offline-first applications</h4>
+              <p>Data can be stored locally and published later when back online.</p>
+            </section>
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-users"></i> Build collaborative applications</h4>
+              <p>With real time updates and fine-grained permissions.</p>
+            </section>
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-refresh"></i> Synchronise application data</h4>
+              <p>Retrieve remote changes, identify and solve conflicts across different devices.</p>
+            </section>
+          </div>
+          <div class="row usecases">
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-laptop"></i> Content delivery</h4>
+              <p>Manage remote content or configuration for your apps via an administration UI.</p>
+            </section>
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-check-square-o"></i> Data collection</h4>
+              <p>Easily collect structured data from surveys, forms, analytics.</p>
+            </section>
+            <section class="usecase 4u 12u(narrower)">
+              <h4><i class="fa fa-shield"></i> Store encrypted data</h4>
+              <p>At a location users can control, ensuring better privacy and security.</p>
+            </section>
+          </div>
+        </section>
+      </div>
+
+      <!-- Promo -->
+      <div id="promo-wrapper">
+        <section id="promo">
+          <h2>If you know HTTP, you know Kinto</h2>
+          <a href="http://kinto.readthedocs.io/en/latest/tutorials/first-steps.html" class="button">Take the tutorial</a>
+        </section>
+      </div>
+
+      <!-- Features -->
+      <div class="wrapper">
+        <div class="container">
+          <div class="row">
+            <section class="6u 12u(narrower) feature">
+              <header>
+                <h2><i class="fa fa-suitcase"></i> Batteries included</h2>
+              </header>
+              <p>Kinto works out the box, providing most of what any application needs to store and consume data.</p>
+              <ul>
+                <li><a href="http://kinto.github.io/kinto-admin/">Web Admin</a></li>
+                <li><a href="http://kinto.readthedocs.io/en/stable/concepts.html#buckets-collections-and-records">Data containers</a></li>
+                <li><a href="http://kinto.readthedocs.io/en/stable/api/1.x/permissions.html">Permissions</a></li>
+                <li><a href="http://kinto.readthedocs.io/en/stable/tutorials/first-steps.html">Synchronization</a></li>
+                <li><a href="https://kinto.readthedocs.io/en/latest/api/1.x/quotas.html#api-quotas">Quotas</a></li>
+              </ul>
+            </section>
+            <section class="6u 12u(narrower) feature">
+              <header>
+                <h2><i class="fa fa-plug"></i> Pluggable by design</h2>
+              </header>
+              <p>If you miss something, an extensible architecture and many existing plugins probably provide what you need.</p>
+              <ul>
+                <li><a href="https://github.com/Kinto/kinto-attachment">Attachments</a></li>
+                <li><a href="https://github.com/Kinto/kinto-emailer">Emailer</a></li>
+                <li><a href="http://kinto.readthedocs.io/en/stable/tutorials/notifications-websockets.html">Notifications</a></li>
+                <li><a href="http://www.servicedenuages.fr/en/kinto-encryption-example">Encryption</a></li>
+                <li><a href="https://github.com/Kinto/kinto-signer">Signing &amp; Review</a></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features 2 -->
+      <div class="wrapper">
+        <section class="container">
+          <header class="major">
+            <h2>Kinto provides all the tools you need to get productive</h2>
+            <p>Web, Native, Server, Kinto is target platform agnostic</p>
+          </header>
+          <div class="row features">
+            <section class="4u 12u(narrower) feature">
+              <div class="image-wrapper first">
+                <a href="https://kinto.github.io/kinto-admin/" class="image featured"><img src="images/sync-devices.jpg" alt="" /></a>
+              </div>
+              <p>A full featured <a href="https://kinto.github.io/kinto-admin/">Web Admin</a> makes managing your data a breeze.</p>
+            </section>
+            <section class="4u 12u(narrower) feature">
+              <div class="image-wrapper">
+                <a href="https://kintojs.readthedocs.io/" class="image featured"><img src="images/kintojs.png" alt="" /></a>
+              </div>
+              <p><a href="https://kintojs.readthedocs.io/">Kinto.js</a> brings an offline-first Kinto experience to the browser.</p>
+            </section>
+            <section class="4u 12u(narrower) feature">
+              <div class="image-wrapper">
+                <a href="https://github.com/Kinto/kinto-http.py" class="image featured"><img src="images/kintopy.png" alt="" /></a>
+              </div>
+              <p><a href="https://github.com/Kinto/kinto-http.py">Python</a> and <a href="https://github.com/Kinto/kinto-http.js">JavaScript</a> clients expose convenient APIs to operate Kinto servers.</p>
+            </section>
+          </div>
+      </div>
+
+      <!-- Footer -->
+      <div id="footer-wrapper">
+        <div id="footer" class="container">
+          <ul class="community icons">
+            <li class="icon fa-github">
+              <a href="https://github.com/Kinto" title="Github Org">Github</a>
+            </li>
+            <li class="icon fa-commenting-o">
+              <a href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" title="Freenode IRC channel">IRC</a>
+            </li>
+            <li class="icon fa-stack-overflow">
+              <a href="http://stackoverflow.com/questions/tagged/kinto?sort=newest" title="Stack Overflow">SO</a>
+            </li>
+            <li class="icon fa-envelope-o">
+              <a href="https://mail.mozilla.org/listinfo/kinto" title="Mailing-List">ML</a>
+            </li>
+            <li class="icon fa-slack">
+              <a href="https://slack.kinto-storage.org/" title="Slack channel">Slack</a>
+            </li>
+            <li class="icon fa-rss">
+              <a href="http://www.servicedenuages.fr/en" title="Latest articles about Kinto">Blog</a>
+            </li>
+          </ul>
+        </div>
+        <div id="copyright" class="container">
+          <ul class="menu">
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <!--feature 2 end-->
-<!--feature 1-->
-<div class="row">
-<div style="height: 300px;" class="col-md-5 col-md-push-7 text-center">
-  <img src="img/overview-use-cases.png" id="kinto-use-cases"/>
-</div>
-<div class="col-md-7 col-md-pull-4">
-  <article id="key-features">
-    <h1>Key features</h1>
-    <ul>
-      <li>Encryption ready</li>
-      <li>Push notifications</li>
-      <li>Ops friendly</li>
-      <li>Offline first</li>
-      <li>JavaScript &amp; Python clients available</li>
-    </ul>
-  </article>
-</div>
-</div>
-<!--Features end-->
-<section class="sub-form section-spacing">
-  <div class="container">
-    <header class="section-header">
-      <h2>What is the difference between kinto.js and kinto-client.js?</h2>
-    </header>
-    <div class="row">
-      <div class="col-md-6 col-sm-11">
-        <p>kinto-client.js is an isomorphic JavaScript HTTP client for the Kinto API, and kinto.js a library for building Offline-first,
-		synchronized Web applications. The former is a dependency of the latter, meaning kinto.js communicates with a Kinto server
-		leveraging the kinto-client.js JavaScript API. kinto-client.js supports a much broader scope of the Kinto API, while kinto.js
-		simply uses what it needs from it to synchronize collection data.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!--sub-form-->
-<section class="sub-form section-spacing text-center">
-  <div class="container">
-    <header class="section-header">
-      <h2>Want to get started?</h2>
-    </header>
-    <div class="row">
-      <div class="col-md-6 center-block col-sm-11">
-        <a href="https://kinto.readthedocs.io/en/latest/tutorials/index.html" class="btn">
-          Read the tutorial →</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!--sub-form end-->
-</div>
-</div>
 
-
-<section class="benefits section-spacing text-center" id="footer">
-  <div class="container">
-    <header class="section-header">
-      <p>
-        Kinto &lt;3 React. Everything is less than three.
-        Logo by <a href="http://www.miho-stories.com/">Aymeric Faivre</a>.
-      </p>
-    </header>
-  </div>
-</section>
-
-
-<script src="js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script src="js/jquery-2.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/waypoints.js"></script>
-<script src="js/jquery_003.js"></script>
-<script src="js/waypoints-sticky.js"></script>
-<script src="js/retina.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/jquery_002.js"></script>
-<script src="js/main.js"></script>
-
-</body>
+    <!-- Uncomment this to enable LiveReload -->
+    <!-- <script src="http://localhost:35729/livereload.js"></script> -->
+  </body>
 </html>
