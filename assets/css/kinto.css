@@ -50,7 +50,23 @@
 }
 
 .community li {
-  margin-bottom: 1em;
+  margin: 0 0 1em 1em;
+}
+
+ul.icons li a {
+  border-bottom: none;
+}
+
+ul.icons li a:before {
+  display: inline-block;
+  color: #fff;
+  background: #61666b;
+  width: 2em;
+  height: 2em;
+  border-radius: 0.35em;
+  text-align: center;
+  line-height: 2em;
+  margin-right: 0.75em;
 }
 
 @media screen and (min-width: 820px) {
