@@ -2017,7 +2017,7 @@
 		background-repeat: repeat, no-repeat, no-repeat;
 	}
 
-	.homepage #header-wrapper {
+	.index #header-wrapper {
 		padding: 10em 0 6em 0;
 		background-size: 128px 128px, 100% 100%, auto;
 	}
@@ -2300,7 +2300,7 @@
 				padding: 2em 0 2em 0;
 			}
 
-			.homepage #header-wrapper {
+			.index #header-wrapper {
 				padding: 8em 0 4em 0;
 			}
 
@@ -2345,7 +2345,7 @@
 				padding: 5em 0 1em 0;
 			}
 
-			.homepage #header-wrapper {
+			.index #header-wrapper {
 				padding: 5em 0 4em 0;
 			}
 
@@ -2579,7 +2579,7 @@
 				text-align: center;
 			}
 
-			.homepage #header-wrapper {
+			.index #header-wrapper {
 				padding: 3em 20px 3em 20px;
 			}
 

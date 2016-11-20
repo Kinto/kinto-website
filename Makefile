@@ -11,7 +11,7 @@ VIRTUALENV = virtualenv
 INSTALL_STAMP = $(VENV)/.install.stamp
 
 PYTHON=$(VENV)/bin/python
-PELICAN=$(VENV)/bin/pelican
+PELICAN=$(VENV)/bin/pelican --debug
 PIP=$(VENV)/bin/pip
 
 DEBUG ?= 0

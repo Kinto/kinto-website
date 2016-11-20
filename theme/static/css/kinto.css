@@ -99,3 +99,11 @@ h4.icon {
   font-family: inherit;
   line-height: 1.5em;
 }
+
+.spacing-top {
+  padding-top: 20px;
+}
+
+#logo a {
+  border-bottom: none;
+}
