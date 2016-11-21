@@ -6,18 +6,17 @@
         <div id="header" class="container">
           <h1 id="logo"><a href="{{ SITEURL }}/"><img src="images/kinto-logo.svg" alt="Kinto"/></a></h1>
         </div>
-
-        <!-- Hero -->
-        <section id="hero" class="container spacing-top">
-          <header>
-            <h2>{{ article.title }}</h2>
-          </header>
-        </section>
       </div>
 
-      <div>
+      <div class="wrapper" id="why">
         <div class="container">
-        <p>{{ article.content }}</p>
+          <article>
+            <header>
+              <h2>{{ article.title }}</h2>
+            </header>
+            {{ article.content }}
+          </article>
         </div>
       </div>
+
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}List of articles{%endblock%}
+
+{% block content %}
+      <div id="header-wrapper">
+        <div id="header" class="container">
+          <h1 id="logo"><a href="{{ SITEURL }}/"><img src="images/kinto-logo.svg" alt="Kinto"/></a></h1>
+        </div>
+
+        <!-- Hero -->
+        <section id="hero" class="container spacing-top">
+          <header>
+            <h2>All articles</h2>
+          </header>
+        </section>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+          <article>
+            {% for article in dates %}
+            <h3><a class="post-title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+            {% endfor %}
+          </article>
+        </div>
+      </div>
+
+{% endblock %}
