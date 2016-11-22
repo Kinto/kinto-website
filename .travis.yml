@@ -1,0 +1,9 @@
+language: python
+branches:
+  only:
+  - master
+install:
+- make install
+- pip install ghp-import
+script:
+- make github

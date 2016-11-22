@@ -6,6 +6,8 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
+GITHUB_PAGES_BRANCH=gh-pages
+
 VENV := $(shell echo $${VIRTUAL_ENV-$(shell pwd)/.venv})
 VIRTUALENV = virtualenv
 INSTALL_STAMP = $(VENV)/.install.stamp
@@ -49,5 +51,11 @@ regenerate:
 publish: install
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	echo "www.kinto-storage.org" > $(OUTPUTDIR)/CNAME
+
+github: publish
+	ifeq ($(TRAVIS_PULL_REQUEST), false)
+		ghp-import -n $(OUTPUTDIR)
+		@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
+	endif
 
 .PHONY: html clean serve devserver publish
