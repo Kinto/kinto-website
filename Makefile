@@ -53,9 +53,9 @@ publish: install
 	echo "www.kinto-storage.org" > $(OUTPUTDIR)/CNAME
 
 github: publish
-	ifeq ($(TRAVIS_PULL_REQUEST), false)
-		ghp-import -n $(OUTPUTDIR)
-		@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
-	endif
+ifeq ($(TRAVIS_PULL_REQUEST), false)
+	ghp-import -n $(OUTPUTDIR)
+	@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
+endif
 
 .PHONY: html clean serve devserver publish
