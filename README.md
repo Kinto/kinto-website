@@ -1,6 +1,6 @@
 # The Kinto website
 
-This is the code behind the Kinto website. It's powered by
+This repository contains the code behind the Kinto website. It's powered by
 [Pelican](http://www.getpelican.com), [Travis-CI](http://travis-ci.org/) and
 Github pages.
 
