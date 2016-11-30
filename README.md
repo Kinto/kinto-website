@@ -8,11 +8,14 @@ Github pages.
 
 If you want to build the website locally, it's as simple as this:
 
+```bash
+
   $ git clone https://github.com/Kinto/kinto-website.git
   $ cd kinto-website
   $ make install
   $ make regenerate
 
+```
 ## How to push updates to the online website
 
 The repository is configured to trigger a build each time a commit hits the
