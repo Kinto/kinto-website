@@ -38,6 +38,15 @@
   padding-bottom: 2em;
 }
 
+.highlight {
+  padding: .4em .8em;
+  border-radius: 6px;
+}
+  .highlight pre {
+    font-family: Consolas, Monaco, "Ubuntu Mono", "Deja Vu Mono", monospace;
+    font-size: .85em;
+  }
+
 @media screen and (max-width: 736px) {
   #logo {
       position: absolute;
