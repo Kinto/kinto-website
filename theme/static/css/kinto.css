@@ -32,7 +32,11 @@
   color: #fff;
   margin: .5em 1em;
   font-size: 1.2em;
+  color: #eee;
 }
+  .top-links a:hover {
+    color: #fff;
+  }
 
 #why {
   padding-bottom: 2em;
@@ -70,6 +74,11 @@
 }
 
 @media screen and (max-width: 820px) {
+  .archives #header-wrapper,
+  .article #header-wrapper {
+    height: 130px;
+  }
+
   .row > section.usecase {
     margin-bottom: 1em;
   }
