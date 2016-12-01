@@ -9,16 +9,22 @@
 
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/kinto.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="{{ SITEURL }}/theme/css/ie9.css" /><![endif]-->
 
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
   {% endblock head %}
 </head>
 
-  <body class="{{ output_file.split('/')[-1].split('.')[0] }}">
+  <body class="{% block bodyclass %}index{% endblock %}">
     <div id="page-wrapper">
 
       {% block content %}{% endblock %}
+
+      <div class="top-links">
+        <a href="{{ SITEURL }}/news.html">Blog</a> |
+        <a href="https://github.com/Kinto">Github</a>
+      </div>
 
       <!-- Footer -->
       <div id="footer-wrapper">
@@ -40,7 +46,7 @@
               <a class="icon fa-slack" href="https://slack.kinto-storage.org/" title="Slack channel">Slack</a>
             </li>
             <li>
-              <a class="icon fa-rss" href="http://www.kinto-storage.org/archives.html" title="Latest articles about Kinto">Blog</a>
+              <a class="icon fa-rss" href="{{ SITEURL }}/news.html" title="Latest articles about Kinto">Blog</a>
             </li>
           </ul>
         </div>

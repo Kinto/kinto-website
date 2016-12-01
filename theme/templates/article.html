@@ -1,22 +1,9 @@
-{% extends "base.html" %}
-{% block title %}{{ article.title }}{%endblock%}
+{% extends "with_sidebar.html" %}
+{% block title %}{{ article.title }}{% endblock %}
 
-{% block content %}
-      <div id="header-wrapper">
-        <div id="header" class="container">
-          <h1 id="logo"><a href="{{ SITEURL }}/"><img src="images/kinto-logo.svg" alt="Kinto"/></a></h1>
-        </div>
-      </div>
-
-      <div class="wrapper" id="why">
-        <div class="container">
-          <article>
-            <header>
-              <h2>{{ article.title }}</h2>
-            </header>
-            {{ article.content }}
-          </article>
-        </div>
-      </div>
-
+{% block main_content %}
+  <header>
+    <h2>{{ article.title }}</h2>
+  </header>
+  {{ article.content }}
 {% endblock %}

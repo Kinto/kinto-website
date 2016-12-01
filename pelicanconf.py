@@ -19,11 +19,11 @@ DEFAULT_PAGINATION = False
 
 THEME = "theme"
 INDEX_SAVE_AS = 'news.html'
-
 MENUITEMS = (
     (u'About Kinto', '/index.html'),
     (u'News', '/news.html'),
 )
+
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 STATIC_PATHS = ['images', 'documents', 'extra/CNAME', ]
