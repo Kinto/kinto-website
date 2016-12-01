@@ -1,0 +1,13 @@
+{% extends "with_sidebar.html" %}
+{% block title %}Blog{%endblock%}
+{% block bodyclass %}archives{% endblock %}
+
+{% block main_content %}
+  {% for article in dates %}
+  <article>
+    <h3><a class="post-title" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+    <p>{{ article.date|strftime('%d %B %Y') }}</p>
+    {{ article.content }}
+  </article>
+  {% endfor %}
+{% endblock %}

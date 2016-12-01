@@ -1,42 +1,10 @@
-{% extends "base.html" %}
+{% extends "with_sidebar.html" %}
 {% block title %}{{ article.title }}{% endblock %}
 {% block bodyclass %}article{% endblock %}
 
-{% block content %}
-      <div id="header-wrapper">
-        <div id="header" class="container">
-          <h1 id="logo"><a href="{{ SITEURL }}/"><img src="images/kinto-logo.svg" alt="Kinto"/></a></h1>
-        </div>
-      </div>
-
-      <div class="wrapper">
-        <div class="container" id="main">
-          <div class="row 150%">
-            <div class="8u 12u(narrower)">
-              <!-- Content -->
-              <article id="content">
-                <header>
-                  <h2>{{ article.title }}</h2>
-                </header>
-                {{ article.content }}
-              </article>
-            </div>
-            <div class="4u 12u(narrower)">
-              <!-- Sidebar -->
-              <section id="sidebar">
-                <h3>Latest articles</h3>
-                <ul>
-                {% for article in dates %}
-                  <li>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                    <br>
-                    {{ article.summary }}
-                  </li>
-                {% endfor %}
-                </ul>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
+{% block main_content %}
+  <header>
+    <h2>{{ article.title }}</h2>
+  </header>
+  {{ article.content }}
 {% endblock %}
