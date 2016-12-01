@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title }}{%endblock%}
+{% block title %}{{ article.title }}{% endblock %}
+{% block bodyclass %}article{% endblock %}
 
 {% block content %}
       <div id="header-wrapper">
@@ -8,15 +9,34 @@
         </div>
       </div>
 
-      <div class="wrapper" id="why">
-        <div class="container">
-          <article>
-            <header>
-              <h2>{{ article.title }}</h2>
-            </header>
-            {{ article.content }}
-          </article>
+      <div class="wrapper">
+        <div class="container" id="main">
+					<div class="row 150%">
+						<div class="8u 12u(narrower)">
+							<!-- Content -->
+							<article id="content">
+								<header>
+									<h2>{{ article.title }}</h2>
+								</header>
+								{{ article.content }}
+							</article>
+						</div>
+						<div class="4u 12u(narrower)">
+							<!-- Sidebar -->
+							<section id="sidebar">
+                <h3>Latest articles</h3>
+                <ul>
+                {% for article in dates %}
+                  <li>
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                    <br>
+                    {{ article.summary }}
+                  </li>
+                {% endfor %}
+                </ul>
+							</section>
+						</div>
+          </div>
         </div>
       </div>
-
 {% endblock %}
