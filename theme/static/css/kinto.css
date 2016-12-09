@@ -1,5 +1,9 @@
 code {
-  background-color: #cac9ff
+  background-color: #cac9ff;
+  padding: .2em .2em .1em .2em;
+  font-family: Consolas, Monaco, "Ubuntu Mono", "Deja Vu Mono", monospace;
+  font-size: 90%;
+  border-radius: 2px;
 }
 
 .usecase > h4 {
@@ -146,5 +150,6 @@ h4.icon {
 
 article > ul,
 article > ol  {
-  list-style: initial;
+  list-style-type: square;
+  margin-left: 1em;
 }
