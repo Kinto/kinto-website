@@ -1,3 +1,7 @@
+code {
+  background-color: #cac9ff
+}
+
 .usecase > h4 {
   font-weight: bold;
   font-size: 1.3rem;
@@ -43,7 +47,9 @@
 
 .highlight {
   padding: .4em .8em;
+  margin-bottom: 1.5em;
   border-radius: 6px;
+  overflow: auto;
 }
   .highlight pre {
     font-family: Consolas, Monaco, "Ubuntu Mono", "Deja Vu Mono", monospace;
@@ -136,4 +142,9 @@ h4.icon {
 
 .spacing-top {
   padding-top: 20px;
+}
+
+article > ul,
+article > ol  {
+  list-style: initial;
 }
