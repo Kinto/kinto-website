@@ -58,6 +58,7 @@ code {
   .highlight pre {
     font-family: Consolas, Monaco, "Ubuntu Mono", "Deja Vu Mono", monospace;
     font-size: .85em;
+    line-height: 1.5em;
   }
 
 @media screen and (max-width: 736px) {
