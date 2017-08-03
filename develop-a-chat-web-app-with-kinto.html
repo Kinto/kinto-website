@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="fr" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8" />
+    <title>Kinto Storage - How to develop a Web App with Kinto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://www.kinto-storage.org/theme/css/main.css" />
+    <link rel="stylesheet" href="https://www.kinto-storage.org/theme/css/kinto.css" />
+    <link rel="stylesheet" href="https://www.kinto-storage.org/theme/css/pygment.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="https://www.kinto-storage.org/theme/css/ie9.css" /><![endif]-->
+
+    <link href="https://www.kinto-storage.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Kinto Storage Full Atom Feed" />
+</head>
+
+  <body class="with_sidebar">
+    <div id="page-wrapper">
+
+      <div id="header-wrapper">
+        <div id="header" class="container">
+          <h1 id="logo"><a href="https://www.kinto-storage.org/"><img src="images/kinto-logo.svg" alt="Kinto"/></a></h1>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container" id="main">
+          <div class="row 150%">
+            <div class="8u 12u(narrower)">
+              <!-- Content -->
+              <article id="content">
+  <header>
+    <h2>How to develop a Web App with Kinto</h2>
+  </header>
+  <p><em>This post was <a href="https://blog.ticabri.com/2016/11/29/developper-une-webapp-avec-kinto/">originally published in French on Enguerran Colson's blog</a>.</em></p>
+<h2>Our goal</h2>
+<p>Hi folks, today, we are going to create a simple Web App that allows visitors to chat in a room accessible from a public URL.</p>
+<p class="image"><img alt="KintoChat, our instant chat Web App" src="images/kintochat-fullscreen.png"></p>
+<p>What will we need?</p>
+<ul>
+<li>A really simple chat Web App with minimal UI.</li>
+<li>We will need a bit of JavaScript to enhance and animate interactions within the application and we will also need a way to store and share the app's data. Ideally, we would like our application to consume a REST API exposing endpoints like <code>https://api.discute.re/v1/rooms/12345/messages</code>, where <code>discute.re</code> is the domain of our application (<em>discutere</em> means to chat in Latin).</li>
+</ul>
+<p>Our API endpoints would be:</p>
+<ul>
+<li><code>/rooms</code> to return all chat rooms,</li>
+<li><code>/rooms/:id/</code> to return a particular chat room identified by an ID,</li>
+<li><code>/rooms/:id/messages</code> to return all messages from a particular room.</li>
+</ul>
+<p>To post a message, our front-end will do a <code>POST</code> request to <code>/rooms/:id/messages</code>.</p>
+<p>We would store each message like this:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;I know nothing&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="mi">1480340246147</span><span class="p">,</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Jon Snow&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;a1e6e879-5c94-4a01-9ec2-28e152d1d8f4&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The JavaScript code could use whatever library or latest hype JS framework but in our example we will stick to modern <a href="http://vanilla-js.com/">Vanilla JS</a> and use top notch <a href="https://babeljs.io/docs/learn-es2015/">ES2015 syntax</a>.</p>
+<h2>API creation</h2>
+<p>Hmm… what backend should we use? Django? Express? Firebase?… oh wait, why don’t we give <a href="http://www.kinto-storage.org/">Kinto</a> a try?</p>
+<p>Kinto provides a flexible and generic enough API to address the needs of many different kinds of application. Call us lazy, effective or pragmatic but Kinto will prevent us to write our own API and help us handle other APIs.</p>
+<p>Let's see how to use Kinto for our instant chat Web App.</p>
+<p>To show some pride, we will use an explicit subdomain for our main URL <code>https://kinto.discute.re/v1</code> to show our configuration rather than an agnostic <code>https://api.discute.re/v1</code>.</p>
+<p>Using Kinto, here are the native API endpoints we will use to match our application requirements:</p>
+<ul>
+<li><code>/rooms/4815162342</code> becomes <code>/collections/4815162342</code>;</li>
+<li><code>/rooms/4815162342/messages</code> becomes <code>/collections/4815162342/records</code>;</li>
+</ul>
+<p>As we have seen before, we can add a new post to our backend with a simple <code>POST</code> request
+<code>/collections/4815162342/records</code>.</p>
+<p>A Kinto server can handle many Web applications through the concept of <a href="https://kinto.readthedocs.io/en/latest/concepts.html#buckets-collections-and-records"><em>buckets</em></a>; a bucket can contain many <em>collections</em>, a collection can contain many <em>records</em>, and records can contain arbitrary JSON data.</p>
+<p class="image"><img alt="" src="https://kinto.readthedocs.io/en/latest/_images/concepts-general.png"></p>
+<p>For our application, we’ll create a <em>chat</em> bucket, which will contain as many collections as we want distinct <em>chat rooms</em>. Each room collection will itself represent <em>chat messages</em> through records.</p>
+<p>You can use the <a href="http://kinto.github.io/kinto-admin/">Kinto Admin</a> to visually browse and manage your application data.</p>
+<p class="image"><img alt="Our records in Kinto Admin" src="images/kinto-admin-webchat-example.png"></p>
+<p>Considering a chat room with the id <strong>4815162342</strong>, we could:</p>
+<ul>
+<li>retrieve all messages for that <strong>4815162342</strong> room by requesting <code>GET https://kinto.discute.re/v1/buckets/chat/collections/4815162342/records</code>;</li>
+<li>post new messages to the room using <code>POST https://kinto.discute.re/buckets/chat/collections/4815162342/records</code>.</li>
+</ul>
+<p>It's very similar to our first envisioned API calls, which were:</p>
+<ul>
+<li><code>GET https://api.dicute.re/v1/rooms/4815162342/messages</code>,</li>
+<li><code>POST https://api.dicute.re/v1/rooms/4815162342/messages</code>.</li>
+</ul>
+<h2>Let’s install Kinto</h2>
+<p>There are many ways to <a href="https://kinto.readthedocs.io/en/stable/tutorials/install.html">install (or deploy) Kinto</a>:</p>
+<ul>
+<li><a href="https://kinto.readthedocs.io/en/stable/tutorials/install.html#deploying-on-cloud-providers">on Heroku</a>,</li>
+<li><a href="https://kinto.readthedocs.io/en/stable/tutorials/install.html#using-docker">with Docker</a>,</li>
+<li><a href="https://kinto.readthedocs.io/en/stable/tutorials/install.html#using-the-python-package">using a Python package</a>.</li>
+</ul>
+<p>If you want to play with Kinto, an ephemeral instance is also available on <a href="https://kinto.dev.mozaws.net/v1/">https://kinto.dev.mozaws.net/v1/</a>.</p>
+<p>Once deployed, we have access to our <code>https://kinto.discute.re/v1</code> default URL that returns:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;project_version&quot;</span><span class="p">:</span> <span class="s2">&quot;5.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;readonly&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;batch_max_requests&quot;</span><span class="p">:</span> <span class="mi">25</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;capabilities&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;admin&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Serves the admin console.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.5.0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/Kinto/kinto-admin/&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;default_bucket&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The default bucket is an alias for a personal bucket where collections are created implicitly.&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://kinto.readthedocs.io/en/latest/api/1.x/buckets.html#personal-bucket-default&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;project_docs&quot;</span><span class="p">:</span> <span class="s2">&quot;https://kinto.readthedocs.io/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;project_name&quot;</span><span class="p">:</span> <span class="s2">&quot;kinto&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;http_api_version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.12&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kinto.discute.re/v1/&quot;</span>
+
+<span class="p">}</span>
+</pre></div>
+
+
+<p>And that's it! Now we can move to the front-end development phase.</p>
+<h2>Viva JavaScript!</h2>
+<p>In order to get messages, we will have to write a bit of code to get the room's id through the application URL:</p>
+<div class="highlight"><pre><span></span><span class="c1">// https://discute.re/#4815162342  is mapped to the collection 4815162342</span>
+<span class="kr">const</span> <span class="nx">collectionName</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Then we need to do a <code>GET</code> request to get the list of all room's messages.
+A simple <code>GET https://kinto.discute.re/v1/buckets/chat/collections/4815162342/records</code> would do the job (with fetch or XMLHttpRequest), but we will rather be using the <a href="https://github.com/kinto/kinto-http.js">kinto-https-js</a> library that offers a clean client API, take a look at this code:</p>
+<div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">kintoUrl</span> <span class="o">=</span> <span class="s1">&#39;https://kinto.discute.re/v1&#39;</span><span class="p">;</span>
+<span class="c1">// options stores the connection identifiers</span>
+<span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KintoClient</span><span class="p">(</span><span class="nx">kintoUrl</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">bucket</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="nx">collectionName</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">listRecords</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(({</span><span class="nx">data</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="nx">displayMessage</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</pre></div>
+
+
+<p>The <code>options</code> variable contains at least the authentication token. This token was not created before. Kinto accepts all requests and responds accordingly to the token: if the token gives access to the resource, the user can act on it (create, update, etc.), otherwise he can't.
+<a href="https://kinto.readthedocs.io/en/stable/api/1.x/authentication.html">Read more about authentication here</a>.</p>
+<p><code>displayMessage(data)</code> can now retrieve the JSON object and render it as HTML.</p>
+<div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;I know nothing&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="mi">1480340246147</span><span class="p">,</span>
+        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Jon Snow&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;a1e6e879-5c94-4a01-9ec2-28e152d1d8f4&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;I know that I know nothing&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="mi">1480340396521</span><span class="p">,</span>
+        <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Socrates&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;94787c48-aa96-4121-879f-1bd68d3c1f23&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">author</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span>
+    <span class="sb">`&lt;li&gt;</span>
+<span class="sb">       &lt;span&gt;</span>
+<span class="sb">         &lt;span&gt;</span><span class="si">${</span><span class="nx">author</span><span class="si">}</span><span class="sb">&lt;/span&gt;</span>
+<span class="sb">         &lt;span&gt;</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">&lt;/span&gt;</span>
+<span class="sb">       &lt;/span&gt;</span>
+<span class="sb">     &lt;/li&gt;`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">displayMessage</span><span class="p">({</span><span class="nx">message</span><span class="p">,</span> <span class="nx">author</span><span class="p">})</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+  <span class="nx">container</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">getMessage</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">author</span><span class="p">);</span>
+  <span class="nx">messagesList</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Here is how the HTML code looks like:</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;messages&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Jon Snow<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>I know nothing<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Socrates<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>I know that I know nothing<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2>Post a new message</h2>
+<p>This time, we only have to send the form's data to the Kinto server.</p>
+<p class="image"><img alt="" src="images/kintochat-new-post.png"></p>
+<p>Once again, we could go with a simple <code>POST</code> request <code>https://kinto.discute.re/v1/buckets/chat/collections/4815162342/records</code> but here we will use again the Kinto client library to write:</p>
+<div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">messageInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">messageForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;message-form&#39;</span><span class="p">);</span>
+<span class="nx">messageForm</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">saveMessage</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">saveMessage</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">messageInput</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">client</span><span class="p">.</span><span class="nx">bucket</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;4815162342&#39;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">createRecord</span><span class="p">({</span>
+        <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Jean Neige&#39;</span><span class="p">,</span>
+        <span class="nx">message</span><span class="o">:</span> <span class="nx">messageInput</span><span class="p">.</span><span class="nx">value</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>Front-end enhancements</h2>
+<p>Finally to fancy up our little chat application, we use:</p>
+<ul>
+<li><a href="http://getmdl.io">getmdl.io</a> to syle the components;</li>
+<li><a href="http://pusher.com">pusher.com</a> to automatically update our app when new messages arrive.</li>
+</ul>
+<p>With these modifications and without having to write any backend code, we have our chat Web App accessible at this URL: <a href="https://enguerran.github.io/kintochat/#4815162342">https://enguerran.github.io/kintochat/#4815162342</a>.</p>
+<p>The example <a href="https://github.com/enguerran/kintochat">source code is available on Github</a>, please keep in mind that it is just for educational purpose, it’s not production ready, it’s not even covered with tests.</p>
+<p><em>N.B.: if you prefer to use Elm instead of JavaScript, you can <a href="https://github.com/Natim/kinto-elm-chat">find an Elm client here</a>.</em></p>
+<h2>But, what is Kinto?</h2>
+<p>You can think of Kinto as a generic backend to store and sync your data.</p>
+<p>Kinto is written in Python around <a href="https://trypyramid.com/">Pyramid</a>. Kinto is highly configurable through its <code>kinto.ini</code> file and <a href="https://github.com/Kinto/kinto/wiki/Plugins">plugins</a>.</p>
+<p>Kinto is <a href="https://github.com/kinto">OpenSource</a> and allows us to store of our user's data away from <a href="http://www.greenm3.com/gdcblog/2016/8/2/the-big-5-are-apple-google-microsoft-amazon-facebook">Big Five</a> closed silos and other private cloud unicorns.</p>
+<p>If you stumble upon a bug or want to express a need, you can easily <a href="https://slack.kinto-storage.org/">contact the Kinto community</a>, open an issue or create your own plugin.</p>
+<p>Now that you know how to store and sync your Web App’s data, come and join the Kinto community, share your experience, provide us some feedback.</p>
+<p>We would like to see more and more useful Web Apps developed with Kinto, it’s up to you now!</p>
+              </article>
+            </div>
+            <div class="4u 12u(narrower)">
+              <!-- Sidebar -->
+              <section id="sidebar">
+                <h3>Latest articles</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.kinto-storage.org/develop-a-chat-web-app-with-kinto.html">How to develop a Web App with Kinto</a>
+                    <br>
+                    <p>An example of how Kinto handles a Web App's data storage.</p>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-links">
+        <a href="https://www.kinto-storage.org/news.html">Blog</a> |
+        <a href="https://github.com/Kinto">Github</a>
+      </div>
+
+      <!-- Footer -->
+      <div id="footer-wrapper">
+        <div id="footer" class="container">
+          <ul class="community icons">
+            <li>
+              <a class="icon fa-github" href="https://github.com/Kinto" title="Github Org">Github</a>
+            </li>
+            <li>
+              <a class="icon fa-commenting-o" href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" title="Freenode IRC channel">IRC</a>
+            </li>
+            <li>
+              <a class="icon fa-stack-overflow" href="http://stackoverflow.com/questions/tagged/kinto?sort=newest" title="Stack Overflow">SO</a>
+            </li>
+            <li>
+              <a class="icon fa-envelope-o" href="https://mail.mozilla.org/listinfo/kinto" title="Mailing-List">ML</a>
+            </li>
+            <li>
+              <a class="icon fa-slack" href="https://slack.kinto-storage.org/" title="Slack channel">Slack</a>
+            </li>
+            <li>
+              <a class="icon fa-rss" href="https://www.kinto-storage.org/news.html" title="Latest articles about Kinto">Blog</a>
+            </li>
+          </ul>
+        </div>
+        <div id="copyright" class="container">
+          <ul class="menu">
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
