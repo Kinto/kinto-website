@@ -51,6 +51,7 @@ regenerate:
 publish: install
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	echo "www.kinto-storage.org" > $(OUTPUTDIR)/CNAME
+	cp _headers  $(OUTPUTDIR)/_headers
 
 github: publish
 ifeq ($(TRAVIS_PULL_REQUEST), false)
