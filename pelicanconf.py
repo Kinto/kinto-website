@@ -13,7 +13,7 @@ PATH = 'content'
 
 TIMEZONE = 'Europe/Paris'
 
-DEFAULT_LANG = u'fr'
+DEFAULT_LANG = u'en'
 
 DEFAULT_PAGINATION = False
 
