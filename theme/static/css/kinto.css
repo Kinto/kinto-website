@@ -1,7 +1,10 @@
+pre, code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 code {
   background-color: #cac9ff;
   padding: .2em .2em .1em .2em;
-  font-family: Consolas, Monaco, "Ubuntu Mono", "Deja Vu Mono", monospace;
   font-size: 90%;
   border-radius: 2px;
 }
@@ -69,7 +72,6 @@ code {
   overflow: auto;
 }
   .highlight pre {
-    font-family: Consolas, Monaco, "Ubuntu Mono", "Deja Vu Mono", monospace;
     font-size: .85em;
     line-height: 1.5em;
   }
