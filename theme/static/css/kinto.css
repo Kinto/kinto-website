@@ -175,3 +175,21 @@ article > ol  {
 .feature header svg {
   fill: #52575c;
 }
+
+.code-sample {
+  text-align: left;
+  background-color: #282828;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 16px;
+  margin-top: 16px;
+  color: #fbf1c7;
+}
+
+.code-sample code {
+  background-color: transparent
+}
+
+.s-red { color: #fb4934; }
+.s-orange { color: #fabd2f; }
+.s-green { color: #b8bb26; }
