@@ -17,6 +17,7 @@
 </head>
 
   <body class="{% block bodyclass %}index{% endblock %}">
+    {% include 'icons.html' %}
     <div id="page-wrapper">
 
       {% block content %}{% endblock %}
@@ -31,22 +32,22 @@
         <div id="footer" class="container">
           <ul class="community icons">
             <li>
-              <a class="icon fa-github" href="https://github.com/Kinto" title="Github Org">Github</a>
+              <a href="https://github.com/Kinto" title="Github Org"><svg class="icon"><use xlink:href="#icon-github"></use></svg>GitHub</a>
             </li>
             <li>
-              <a class="icon fa-commenting-o" href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" title="Freenode IRC channel">IRC</a>
+              <a href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" title="Freenode IRC channel"><svg class="icon"><use xlink:href="#icon-comment-dots"></use></svg>IRC</a>
             </li>
             <li>
-              <a class="icon fa-stack-overflow" href="http://stackoverflow.com/questions/tagged/kinto?sort=newest" title="Stack Overflow">SO</a>
+              <a href="http://stackoverflow.com/questions/tagged/kinto?sort=newest" title="Stack Overflow"><svg class="icon"><use xlink:href="#icon-stack-overflow"></use></svg>SO</a>
             </li>
             <li>
-              <a class="icon fa-envelope-o" href="https://mail.mozilla.org/listinfo/kinto" title="Mailing-List">ML</a>
+              <a href="https://mail.mozilla.org/listinfo/kinto" title="Mailing-List"><svg class="icon"><use xlink:href="#icon-envelope"></use></svg>ML</a>
             </li>
             <li>
-              <a class="icon fa-slack" href="https://slack.kinto-storage.org/" title="Slack channel">Slack</a>
+              <a href="https://slack.kinto-storage.org/" title="Slack channel"><svg class="icon"><use xlink:href="#icon-slack"></use></svg>Slack</a>
             </li>
             <li>
-              <a class="icon fa-rss" href="{{ SITEURL }}/news.html" title="Latest articles about Kinto">Blog</a>
+              <a href="{{ SITEURL }}/news.html" title="Latest articles about Kinto"><svg class="icon"><use xlink:href="#icon-rss"></use></svg>Blog</a>
             </li>
           </ul>
         </div>

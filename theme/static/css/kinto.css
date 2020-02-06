@@ -6,6 +6,19 @@ code {
   border-radius: 2px;
 }
 
+.feature header svg,
+.usecases svg,
+.community svg {
+  width: 1em;
+  height: 1em;
+}
+
+.usecases svg {
+  fill: #52575c;
+  vertical-align: text-bottom;
+  font-size: 25px;
+}
+
 .usecase > h4 {
   font-weight: bold;
   font-size: 1.3rem;
@@ -102,16 +115,19 @@ ul.icons li a {
   border-bottom: none;
 }
 
-ul.icons li a:before {
+ul.icons li a svg {
   display: inline-block;
   color: #fff;
   background: #61666b;
-  width: 2em;
-  height: 2em;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.5em;
   border-radius: 0.35em;
   text-align: center;
   line-height: 2em;
   margin-right: 0.75em;
+  fill: white;
+  vertical-align: middle;
 }
 
 @media screen and (min-width: 820px) {
@@ -153,4 +169,8 @@ article > ul,
 article > ol  {
   list-style-type: square;
   margin-left: 1em;
+}
+
+.feature header svg {
+  fill: #52575c;
 }
