@@ -89,7 +89,6 @@ code {
 }
 
 .image.featured {
-  max-height: 177px;
   overflow: hidden;
 }
 
