@@ -79,7 +79,7 @@ code {
 @media screen and (max-width: 736px) {
   #logo {
       position: absolute;
-      top: 25px;
+      top: 35px;
       left: 50%;
       margin-left: -200px;
   }
