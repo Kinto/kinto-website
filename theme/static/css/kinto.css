@@ -4,7 +4,87 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -18,7 +98,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #52575c;
   line-height: 1.75em;
   font-size: 18px;
@@ -32,12 +114,22 @@ ul {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 300;
   color: #52575c;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
   color: inherit;
   text-decoration: none;
 }
@@ -53,7 +145,8 @@ h3 {
 }
 
 a {
-  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
   color: inherit;
   text-decoration: none;
   border-bottom: dotted 1px #62676c;
@@ -68,13 +161,15 @@ p {
   margin-bottom: 1.5em;
 }
 
-pre, code {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+pre,
+code {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 code {
   background-color: #cac9ff;
-  padding: .2em .2em .1em .2em;
+  padding: 0.2em 0.2em 0.1em 0.2em;
   font-size: 90%;
   border-radius: 2px;
 }
@@ -109,12 +204,12 @@ code {
   left: 50%;
   margin-left: -230px;
 }
-  #logo a {
-    border: none;
-  }
-  #logo img {
-    width: 368px;
-  }
+#logo a {
+  border: none;
+}
+#logo img {
+  width: 368px;
+}
 
 .with_sidebar #header-wrapper {
   height: 170px;
@@ -125,35 +220,35 @@ code {
   top: 0;
   right: 0;
   color: #fff;
-  margin: .5em 1em;
+  margin: 0.5em 1em;
   font-size: 1.2em;
   color: #eee;
 }
-  .top-links a:hover {
-    color: #fff;
-  }
+.top-links a:hover {
+  color: #fff;
+}
 
 #why {
   padding-bottom: 2em;
 }
 
 .highlight {
-  padding: .4em .8em;
+  padding: 0.4em 0.8em;
   margin-bottom: 1.5em;
   border-radius: 6px;
   overflow: auto;
 }
-  .highlight pre {
-    font-size: .85em;
-    line-height: 1.5em;
-  }
+.highlight pre {
+  font-size: 0.85em;
+  line-height: 1.5em;
+}
 
 @media screen and (max-width: 736px) {
   #logo {
-      position: absolute;
-      top: 35px;
-      left: 50%;
-      margin-left: -200px;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    margin-left: -200px;
   }
   #logo img {
     width: 280px;
@@ -208,10 +303,10 @@ code {
     display: flex;
     width: 100%;
   }
-    .k-community li {
-      flex: 1;
-      justify-content: space-around;
-    }
+  .k-community li {
+    flex: 1;
+    justify-content: space-around;
+  }
 }
 
 #footer-wrapper {
@@ -239,7 +334,7 @@ h4.icon {
 }
 
 article > ul,
-article > ol  {
+article > ol {
   list-style-type: square;
   margin-left: 1em;
 }
@@ -273,7 +368,8 @@ article > ol  {
 }
 
 .k-button {
-  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out;
   display: inline-block;
   color: inherit;
   background: none;
@@ -306,12 +402,18 @@ article > ol  {
 }
 
 .code-sample code {
-  background-color: transparent
+  background-color: transparent;
 }
 
-.s-red { color: #fb4934; }
-.s-orange { color: #fabd2f; }
-.s-green { color: #b8bb26; }
+.s-red {
+  color: #fb4934;
+}
+.s-orange {
+  color: #fabd2f;
+}
+.s-green {
+  color: #b8bb26;
+}
 
 .feature ul {
   font-size: 1.2em;
@@ -459,7 +561,7 @@ article > ol  {
 .k-promo .k-button {
   background: #fff;
   border-color: rgba(255, 255, 255, 0);
-  color: #27636B;
+  color: #27636b;
   font-size: 1.25em;
 }
 
@@ -482,7 +584,8 @@ article > ol  {
 }
 
 .k-header-wrapper {
-  background-image: url("images/overlay.png"), url("images/header.svg"), linear-gradient(75deg, #6361b2 15%, #393357 55%);
+  background-image: url("images/overlay.png"), url("images/header.svg"),
+    linear-gradient(75deg, #6361b2 15%, #393357 55%);
   background-color: #393357;
   background-size: 100% 620%;
   background-size: 128px 128px, 100% 100%, auto;
