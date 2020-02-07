@@ -193,3 +193,8 @@ article > ol  {
 .s-red { color: #fb4934; }
 .s-orange { color: #fabd2f; }
 .s-green { color: #b8bb26; }
+
+.feature ul {
+  font-size: 1.2em;
+  line-height: 1.75em;
+}
