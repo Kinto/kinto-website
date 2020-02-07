@@ -154,7 +154,12 @@
           <div class="row features">
             <section class="4u 12u(narrower) feature">
               <div class="image-wrapper first">
-                <a href="https://kinto.github.io/kinto-admin/" class="image featured"><img loading="lazy" src="images/sync-devices.jpg" alt="Kinto admin" /></a>
+                <a href="https://kinto.github.io/kinto-admin/" class="image featured">
+                  <picture>
+                    <source type="image/webp" srcset="images/admin_400.webp 1x, images/admin_800.webp 2x, images/admin_1200.webp 3x" />
+                    <img src="images/admin_400.jpg" srcset="images/admin_400.jpg 1x, images/admin_800.jpg 2x, images/admin_1200.jpg 3x" alt="Screenshot of Kinto web admin" />
+                  </picture>
+                </a>
               </div>
               <p>A full featured <a href="https://kinto.github.io/kinto-admin/">Web Admin</a> makes managing your data a breeze.</p>
             </section>
