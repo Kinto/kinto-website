@@ -4,6 +4,11 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+:root {
+  --text-color: #52575c;
+  --purple: #393357;
+}
+
 html,
 body,
 div,
@@ -101,7 +106,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: #52575c;
+  color: var(--text-color);
   line-height: 1.75em;
   font-size: 18px;
 }
@@ -121,7 +126,7 @@ h4,
 h5,
 h6 {
   font-weight: 300;
-  color: #52575c;
+  color: var(--text-color);
 }
 
 h1 a,
@@ -153,7 +158,7 @@ a {
 }
 
 a:hover {
-  color: #393357;
+  color: var(--purple);
   border-bottom-color: rgba(255, 255, 255, 0);
 }
 
@@ -183,7 +188,7 @@ code {
 }
 
 .usecases svg {
-  fill: #52575c;
+  fill: var(--text-color);
   vertical-align: text-bottom;
   font-size: 25px;
 }
@@ -198,13 +203,13 @@ code {
   position: absolute;
   top: 0;
   right: 0;
-  color: #fff;
+  color: white;
   margin: 0.5em 1em;
   font-size: 1.2em;
   color: #eee;
 }
 .top-links a:hover {
-  color: #fff;
+  color: white;
 }
 
 .highlight {
@@ -237,7 +242,7 @@ code {
 
 .k-community li a svg {
   display: inline-block;
-  color: #fff;
+  color: white;
   background: #61666b;
   width: 2.5em;
   height: 2.5em;
@@ -292,7 +297,7 @@ article > ol {
 
 .k-section-header h3 {
   display: block;
-  color: #393357;
+  color: var(--purple);
   padding: 0.75em 0 1em 0;
   font-size: 1em;
   line-height: 1.5em;
@@ -323,13 +328,13 @@ article > ol {
 }
 
 .k-button:hover {
-  color: #393357;
+  color: var(--purple);
   border-color: rgba(243, 88, 88, 0.5);
 }
 
 .feature header svg,
 .k-section-header svg {
-  fill: #52575c;
+  fill: var(--text-color);
 }
 
 .code-sample {
@@ -449,7 +454,7 @@ article > ol {
   background-image: url(images/overlay.png), url(../../images/promo.jpg);
   background-size: 192px 192px, cover;
   background-position: top left, center center;
-  color: #fff;
+  color: white;
   text-align: center;
 
   display: flex;
@@ -486,7 +491,7 @@ article > ol {
 }
 
 .k-promo h2 {
-  color: #fff;
+  color: white;
   margin: 0 0 1em 0;
   font-size: 1.5em;
 }
@@ -500,7 +505,7 @@ article > ol {
 }
 
 .k-promo .k-button {
-  background: #fff;
+  background: white;
   border-color: rgba(255, 255, 255, 0);
   color: #27636b;
   font-size: 1.25em;
@@ -509,7 +514,7 @@ article > ol {
 .k-promo .k-button:hover {
   border-color: rgba(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: white;
 }
 
 .usecase {
@@ -526,8 +531,8 @@ article > ol {
 
 .k-header-wrapper {
   background-image: url("images/overlay.png"), url("images/header.svg"),
-    linear-gradient(75deg, #6361b2 15%, #393357 55%);
-  background-color: #393357;
+    linear-gradient(75deg, #6361b2 15%, var(--purple) 55%);
+  background-color: var(--purple);
   background-size: 100% 620%;
   background-size: 128px 128px, 100% 100%, auto;
   background-repeat: repeat, no-repeat, no-repeat;
@@ -614,8 +619,8 @@ article > ol {
 }
 
 .k-hero a {
-  color: #fff;
-  border-color: #fff;
+  color: white;
+  border-color: white;
   border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -624,9 +629,9 @@ article > ol {
 }
 
 .k-hero .k-button {
-  background: #fff;
+  background: white;
   border-color: rgba(255, 255, 255, 0);
-  color: #393357;
+  color: var(--purple);
   font-size: 1.25em;
   margin-bottom: 0.5em;
 }
@@ -634,7 +639,7 @@ article > ol {
 .k-hero .k-button:hover {
   border-color: rgba(255, 255, 255, 0.75);
   background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: white;
 }
 
 .k-actions {
@@ -656,6 +661,6 @@ article > ol {
 
 .k-copyright {
   text-align: center;
-  color: #a2a7ac;
+  opacity: 0.8;
   margin-top: 2em;
 }
