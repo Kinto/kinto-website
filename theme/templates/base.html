@@ -16,41 +16,37 @@
 
   <body class="{% block bodyclass %}index{% endblock %}">
     {% include 'icons.html' %}
-    <div id="page-wrapper">
+    {% block content %}{% endblock %}
 
-      {% block content %}{% endblock %}
-
-      <div class="top-links">
-        <a href="https://kinto.readthedocs.io/en/latest/index.html">Documentation</a> |
-        <a href="https://github.com/Kinto">GitHub</a>
-      </div>
-
-      <!-- Footer -->
-      <div class="k-footer-wrapper">
-        <footer class="k-container">
-          <ul class="k-community">
-            <li>
-              <a href="https://github.com/Kinto" title="Github Org"><svg class="icon"><use xlink:href="#icon-github"></use></svg>GitHub</a>
-            </li>
-            <li>
-              <a href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" title="Freenode IRC channel"><svg class="icon"><use xlink:href="#icon-comment-dots"></use></svg>IRC</a>
-            </li>
-            <li>
-              <a href="http://stackoverflow.com/questions/tagged/kinto?sort=newest" title="Stack Overflow"><svg class="icon"><use xlink:href="#icon-stack-overflow"></use></svg>SO</a>
-            </li>
-            <li>
-              <a href="https://mail.mozilla.org/listinfo/kinto" title="Mailing-List"><svg class="icon"><use xlink:href="#icon-envelope"></use></svg>ML</a>
-            </li>
-            <li>
-              <a href="https://slack.kinto-storage.org/" title="Slack channel"><svg class="icon"><use xlink:href="#icon-slack"></use></svg>Slack</a>
-            </li>
-          </ul>
-        </footer>
-        <div class="k-copyright">
-          <p>Design: <a href="https://html5up.net">HTML5 UP</a></p>
-        </div>
-      </div>
+    <div class="top-links">
+      <a href="https://kinto.readthedocs.io/en/latest/index.html">Documentation</a> |
+      <a href="https://github.com/Kinto">GitHub</a>
     </div>
 
+    <!-- Footer -->
+    <div class="k-footer-wrapper">
+      <footer class="k-container">
+        <ul class="k-community">
+          <li>
+            <a href="https://github.com/Kinto" title="Github Org"><svg class="icon"><use xlink:href="#icon-github"></use></svg>GitHub</a>
+          </li>
+          <li>
+            <a href="https://kiwiirc.com/client/irc.freenode.net/?#kinto" title="Freenode IRC channel"><svg class="icon"><use xlink:href="#icon-comment-dots"></use></svg>IRC</a>
+          </li>
+          <li>
+            <a href="http://stackoverflow.com/questions/tagged/kinto?sort=newest" title="Stack Overflow"><svg class="icon"><use xlink:href="#icon-stack-overflow"></use></svg>SO</a>
+          </li>
+          <li>
+            <a href="https://mail.mozilla.org/listinfo/kinto" title="Mailing-List"><svg class="icon"><use xlink:href="#icon-envelope"></use></svg>ML</a>
+          </li>
+          <li>
+            <a href="https://slack.kinto-storage.org/" title="Slack channel"><svg class="icon"><use xlink:href="#icon-slack"></use></svg>Slack</a>
+          </li>
+        </ul>
+      </footer>
+      <div class="k-copyright">
+        <p>Design: <a href="https://html5up.net">HTML5 UP</a></p>
+      </div>
+    </div>
   </body>
 </html>
