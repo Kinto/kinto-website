@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta_extra %}{% endblock %}
 
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/kinto.css" />
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="{{ SITEURL }}/theme/css/ie9.css" /><![endif]-->
+    {% block stylesheet_extra %}{% endblock %}
 
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
   {% endblock head %}
@@ -28,9 +26,9 @@
       </div>
 
       <!-- Footer -->
-      <div id="footer-wrapper">
-        <div id="footer" class="container">
-          <ul class="community icons">
+      <div class="k-footer-wrapper">
+        <footer class="k-container">
+          <ul class="k-community">
             <li>
               <a href="https://github.com/Kinto" title="Github Org"><svg class="icon"><use xlink:href="#icon-github"></use></svg>GitHub</a>
             </li>
@@ -46,15 +44,10 @@
             <li>
               <a href="https://slack.kinto-storage.org/" title="Slack channel"><svg class="icon"><use xlink:href="#icon-slack"></use></svg>Slack</a>
             </li>
-            <li>
-              <a href="{{ SITEURL }}/news.html" title="Latest articles about Kinto"><svg class="icon"><use xlink:href="#icon-rss"></use></svg>Blog</a>
-            </li>
           </ul>
-        </div>
-        <div id="copyright" class="container">
-          <ul class="menu">
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
+        </footer>
+        <div class="k-copyright">
+          <p>Design: <a href="https://html5up.net">HTML5 UP</a></p>
         </div>
       </div>
     </div>
