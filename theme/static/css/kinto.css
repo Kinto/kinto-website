@@ -25,6 +25,7 @@ code {
 .usecase > h4 {
   font-weight: bold;
   font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 #header {
