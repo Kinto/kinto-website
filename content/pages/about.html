@@ -5,113 +5,114 @@
     <meta charset="utf-8" />
     <meta name="slug" content="about" />
     <meta name="save_as" content="index.html" />
+    <meta name="description" content="A generic JSON document store with sharing and synchronisation capabilities" />
 
-    <meta name="og_url" content="http://www.kinto-storage.org/" />
+    <meta name="og_url" content="/" />
     <meta name="og_type" content="website" />
-    <meta name="og_title" content="A generic JSON document store with sharing and synchronisation capabilities" />
+    <meta name="og_title" content="Kinto" />
+    <meta name="og_description" content="A generic JSON document store with sharing and synchronisation capabilities" />
+    <meta name="og_image" content="kinto-og.png" />
+    <meta name="og_image_width" content="2000"/>
+    <meta name="og_image_height" content="1000"/>
 
+    <meta name="twitter_card" content="summary_large_image"/>
+    <meta name="twitter_url" content="/"/>
+    <meta name="twitter_title" content="Kinto"/>
+    <meta name="twitter_description" content="A generic JSON document store with sharing and synchronisation capabilities"/>
+    <meta name="twitter_image" content="kinto-og.png"/>
   </head>
   <body>
       <!-- Header -->
-      <div id="header-wrapper">
-        <div id="header" class="container">
-          <h1 id="logo"><a href="./"><img src="images/kinto-logo.svg" alt="Kinto"/></a></h1>
-        </div>
-
+      <div class="k-wrapper k-header-wrapper">
         <!-- Hero -->
-        <section id="hero" class="container">
-          <header>
+        <div class="k-container k-hero">
+          <div class="k-section-header">
+            <h1><img src="images/kinto-logo.svg" alt="Kinto wordmark"/></h1>
             <h2>The backend for your next application<br>&nbsp;is already here</h2>
-          </header>
+          </div>
           <p>Kinto is a generic JSON document store with<br>&nbsp;sharing and synchronisation capabilities.</p>
-          <ul class="actions">
-            <li><a href="#why" class="button">Why use Kinto?</a></li>
+          <ul class="k-actions">
+            <li><a href="https://kinto.readthedocs.io/en/latest/tutorials/install.html" class="k-button">Install Kinto</a></li>
+            <li><a href="http://kinto.readthedocs.io/en/latest/tutorials/first-steps.html">Read the Tutorial</a></li>
           </ul>
-        </section>
+        </div>
       </div>
 
-      <div class="wrapper" id="why">
-        <div class="container">
-          <article>
-            <header>
-              <h2>Don’t build silos. Own your data. Re-decentralise the Web.</h2>
-            </header>
+      <div class="k-wrapper">
+        <div class="k-container">
+            <h2 class="k-section-header">Don’t build silos. Own your data. Re-decentralise the Web.</h2>
             <p>It's hard for frontend developers to build applications that respect user privacy, work offline, store data remotely, and synchronise across devices. Existing solutions either rely on big corporations that crave user data, or require a non-trivial amount of time and expertise to setup a new server for every new project.</p>
             <p>We want to help developers focus on the frontend, and we don’t want the challenge of storing user data to get in their way. The path between a new idea and deploying to production should be short!</p>
             <p>Also, we believe data belong to the users, and not necessarily to the application authors. Applications should be decoupled from the storage location, and users should be able to choose where their personal data are stored.</p>
             <p>The backend can often be universal, generic and reusable. We envision mutualisation of services and self-hosting: the backend is deployed, secured and scaled only once for several applications.</p>
-          </article>
         </div>
       </div>
 
-      <!-- Features -->
-      <div class="wrapper">
-        <section class="container">
-          <header class="major">
+      <div class="k-wrapper">
+        <div class="k-container">
+          <div class="k-major k-section-header">
             <h2>Kinto provides all the tools you need to get productive</h2>
-            <p>Web, Native, Server &mdash; Kinto is target platform agnostic</p>
-          </header>
-          <div class="row usecases">
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-database"> A generic Web database</h4>
+            <h3>Web, Native, Server &mdash; Kinto is target platform agnostic</h3>
+          </div>
+          <div class="usecases">
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-database"></use></svg> A generic Web database</h4>
               <p>A JSON store that speaks HTTP for mobile and Web apps, games, IoT...</p>
             </section>
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-pencil-square-o"> Quickly prototype apps</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-edit"></use></svg> Quickly prototype apps</h4>
               <p>Don’t lose time with server stuff, reuse the same backend you already use elsewhere.</p>
             </section>
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-file-text-o"> Apps as static files</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-file-alt"></use></svg> Apps as static files</h4>
               <p>Simply host your app on a static webserver and consume the Kinto API from there.</p>
             </section>
-          </div>
-          <div class="row usecases">
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-power-off"> Offline-first applications</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-power-off"></use></svg> Offline-first applications</h4>
               <p>Data can be stored locally and published later when back online.</p>
             </section>
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-users"> Build collaborative applications</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-users"></use></svg> Build collaborative applications</h4
               <p>With real time updates and fine-grained permissions.</p>
             </section>
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-refresh"> Synchronise application data</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-sync-alt"></use></svg> Synchronise application data</h4>
               <p>Retrieve remote changes, identify and solve conflicts across different devices.</p>
             </section>
-          </div>
-          <div class="row usecases">
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-laptop"> Content delivery</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-laptop"></use></svg> Content delivery</h4
               <p>Manage remote content or configuration for your apps via an administration UI.</p>
             </section>
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-check-square-o"> Data collection</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-check-square"></use></svg> Data collection</h4
               <p>Easily collect structured data from surveys, forms, analytics.</p>
             </section>
-            <section class="usecase 4u 12u(narrower)">
-              <h4 class="icon fa fa-shield"> Store encrypted data</h4>
+            <section class="usecase">
+              <h4><svg class="icon"><use xlink:href="#icon-shield-alt"></use></svg> Store encrypted data</h4>
               <p>At a location users can control, ensuring better privacy and security.</p>
             </section>
           </div>
-        </section>
+        </div>
       </div>
 
-      <!-- Promo -->
-      <div id="promo-wrapper">
-        <section id="promo">
+      <div class="k-wrapper k-promo-wrapper">
+        <div class="k-promo">
           <h2>If you know HTTP, you know Kinto</h2>
-          <a href="http://kinto.readthedocs.io/en/latest/tutorials/first-steps.html" class="button">Read the tutorial</a>
-        </section>
+          <a href="http://kinto.readthedocs.io/en/latest/tutorials/first-steps.html" class="k-button">Read the Tutorial</a>
+          <pre class="code-sample"><code>curl \
+  <span class="s-orange">-X</span> POST \
+  <span class="s-orange">-H</span> <span class="s-green">'Content-Type: application/json'</span> \
+  <span class="s-orange">-u</span> username:password \
+  <span class="s-orange">-d</span> <span class="s-green">'{ "data": { "saying": "If you know HTTP, you know Kinto!" } }'</span> \
+  https://kinto.dev.mozaws.net/v1/buckets/default/collections/sayings/records</code></pre>
+        </div>
       </div>
 
-      <!-- Features -->
-      <div class="wrapper">
-        <div class="container">
-          <div class="row">
-            <section class="6u 12u(narrower) feature">
-              <header>
-                <h2><i class="fa fa-suitcase"></i> Batteries included</h2>
-              </header>
+      <div class="k-wrapper">
+        <div class="k-container">
+          <div class="architecture">
+            <section class="k-feature">
+              <h2 class="k-section-header"><svg class="icon"><use xlink:href="#icon-suitcase"></use></svg> Batteries included</h2>
               <p>Kinto works out the box, providing most of what any application needs to store and consume data.</p>
               <ul>
                 <li><a href="https://kinto.github.io/kinto-admin/">Web Admin</a></li>
@@ -121,10 +122,8 @@
                 <li><a href="https://kinto.readthedocs.io/en/latest/api/1.x/quotas.html#api-quotas">Quotas</a></li>
               </ul>
             </section>
-            <section class="6u 12u(narrower) feature">
-              <header>
-                <h2><i class="fa fa-plug"></i> Pluggable by design</h2>
-              </header>
+            <section class="k-feature">
+              <h2 class="k-section-header"><svg class="icon"><use xlink:href="#icon-plug"></use></svg> Pluggable by design</h2>
               <p>If something is missing, an extensible architecture and many existing plugins probably provide what you need.</p>
               <ul>
                 <li><a href="https://github.com/Kinto/kinto-attachment">Attachments</a></li>
@@ -138,31 +137,27 @@
         </div>
       </div>
 
-      <!-- Features 2 -->
-      <div class="wrapper">
-        <section class="container">
-          <header class="major">
-            <h2>A growing ecosystem of tools and SDKs</h2>
-          </header>
-          <div class="row features">
-            <section class="4u 12u(narrower) feature">
-              <div class="image-wrapper first">
-                <a href="https://kinto.github.io/kinto-admin/" class="image featured"><img src="images/sync-devices.jpg" alt="" /></a>
-              </div>
+      <div class="k-wrapper">
+        <section class="k-container">
+          <h2 class="k-major k-section-header">A growing ecosystem of tools and SDKs</h2>
+          <div class="ecosystem">
+            <div class="k-feature">
+              <a href="https://kinto.github.io/kinto-admin/">
+                <picture>
+                  <source type="image/webp" srcset="images/admin_400.webp 1x, images/admin_800.webp 2x, images/admin_1200.webp 3x" />
+                  <img src="images/admin_400.jpg" srcset="images/admin_400.jpg 1x, images/admin_800.jpg 2x, images/admin_1200.jpg 3x" alt="Screenshot of Kinto web admin" />
+                </picture>
+              </a>
               <p>A full featured <a href="https://kinto.github.io/kinto-admin/">Web Admin</a> makes managing your data a breeze.</p>
-            </section>
-            <section class="4u 12u(narrower) feature">
-              <div class="image-wrapper">
-                <a href="https://kintojs.readthedocs.io/" class="image featured"><img src="images/kintojs.png" alt="" /></a>
-              </div>
+            </div>
+            <div class="k-feature">
+              <a href="https://kintojs.readthedocs.io/"><img loading="lazy" src="images/kintojs.svg" alt="Sample Kinto JavaScript code" /></a>
               <p><a href="https://kintojs.readthedocs.io/">Kinto.js</a> brings an offline-first Kinto experience to the browser.</p>
-            </section>
-            <section class="4u 12u(narrower) feature">
-              <div class="image-wrapper">
-                <a href="https://github.com/Kinto/kinto-http.py" class="image featured"><img src="images/kintopy.png" alt="" /></a>
-              </div>
+            </div>
+            <div class="k-feature">
+              <a href="https://github.com/Kinto/kinto-http.py"><img loading="lazy" src="images/kintopy.svg" alt="Sample Kinto python code" /></a>
               <p><a href="https://github.com/Kinto/kinto-http.py">Python</a> and <a href="https://github.com/Kinto/kinto-http.js">JavaScript</a> clients expose convenient APIs to operate Kinto servers.</p>
-            </section>
+            </div>
           </div>
       </div>
   </body>

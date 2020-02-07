@@ -13,7 +13,7 @@ PATH = 'content'
 
 TIMEZONE = 'Europe/Paris'
 
-DEFAULT_LANG = u'fr'
+DEFAULT_LANG = u'en'
 
 DEFAULT_PAGINATION = False
 
@@ -26,7 +26,10 @@ MENUITEMS = (
 
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
-STATIC_PATHS = ['images', 'documents', 'extra/CNAME', ]
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
+STATIC_PATHS = ['images', 'documents', 'extra/CNAME', 'extra/robots.txt']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/robots.txt': {'path': 'robots.txt'}
+}
 
 RELATIVE_URLS = True
