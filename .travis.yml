@@ -6,7 +6,4 @@ install:
 - make install
 - pip install ghp-import
 script:
-- make github
-env:
-  global:
-    secure: DObYbSa5sgWRae/WdPcwAE4Ki7DNU0ipgUKAOgb2aaM/iObQLY+AyzZf4+IXYkRTDUkCMv/d1BQa0hCYL/ImU+S+0SBfNniBd+/zGShSS69FABuk6dOkAh23xih1KWsbTUK5ZFxBJtuCOvVlVEc2rIiu9QE4XXDdrOvtRBlgYcEb9bYoNG4ev+Seu+sMJzldK5UuMnX0duG0qDRxNer5NHjZP2e54lJQ+vPp3xQDlB3XdCAGf7Cd/ZqMj98iW1+aUY78SkR50Xi7mmwZ9QMHbl1B29gjtHMyxNTdHka6E/otWm6DLkD53m6svsjg2vtsxChKykt6GAVTLYxGQNNu13PvFvpa1PpVNH/FOypJBcjXpxSmz6K7WIHZsmLkGlhkYEKF0VPyWHuElfJ6zi/Cn98rJf/FUXwTqxICtkKXl0cn5B+UtVctlIRNeqopvq1BTCtr6mj30bTBJflCr2YLjKvPUcIpKj8RA0yRpQzr2FyityA+ZCjh3rRZgRvM6lqj31qxXNcm0owDdQndLmyBoVnZ9ShlY5B4G01IPiBu9gS9H2RKpm6zH5YC1tv9XY7HV72cBL1p2hHP+eUQ5Bpc8u/4eRfUOj9++54ejeMU4DJzrViERG1tCt2B4zC7UF2FrvFyxB8/wAfFz+YiHW9skF6rHepRTvmkRa9dNE2iTtY=
+- make publish
